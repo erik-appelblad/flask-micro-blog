@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>{{blog_title}}</h2>
+                <a href="/posts/new/{{ blog_id }}"><i class="fa fa-plus"></i></a>
+                {% if posts|length > 0 %}
+                    {% for post in posts %}
+                        <h3 class="post_title">{{ post.title }}</h3>
+                        <p class="post_date">{{ post.date.strftime('%Y-%m-%d') }}</p>
+                        <article class="post_content">{{ post.content }}</article>
+                        <p><strong>Category:</strong> {{ post.category }}</p>
+                        <p><strong>Author:</strong> {{ post.author }}</p>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <h4>There are no posts</h4>
+                {% endif %}
+                <a href="/blogs">Back to blogs</a>
+            </div>
+            <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Web Design</a>
+                    </li>
+                    <li>
+                      <a href="#">HTML</a>
+                    </li>
+                    <li>
+                      <a href="#">Freebies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="#">CSS</a>
+                    </li>
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">About {{ about.name }}</h5>
+            <div class="card-body">
+                {{ about.description }}
+              I'm this guy standing on a planet but really I'm just a speck, and compared to a star the planet is just another speck.
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

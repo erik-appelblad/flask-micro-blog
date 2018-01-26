@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>New post</h2>
+    <form id="new-post" method="post" action="/posts/new/{{ blog_id }}">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" id="title" name="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea rows="15" class="form-control" id="content" name="content" placeholder="Enter content"></textarea>
+
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input class="form-control" type="text" id="category" name="category" placeholder="Category">
+        </div>
+        <button class="btn btn-primary" type="submit" id="publish-button">Publish</button>
+
+    </form>
+</div>
+
+{% endblock %}
